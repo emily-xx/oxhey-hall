@@ -1,14 +1,22 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font: 14px "Century Gothic", Futura, sans-serif;
+  margin: 20px;
+  color: #092a5e;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+ol, ul {
+  padding-left: 30px;
+}
+
+.booking-display {
+  border: solid 2px #092a5e;
+  border-radius: 4px;
+  background-color: #dbf2fc;
+  padding: 4px;
+  width: 20em;
+}
+
+.booking-info {
+  margin-top: 2em;
+  margin-left: 1em;
 }
