@@ -2,8 +2,7 @@ import { Proptypes } from 'react';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactTable from "react-table";
-import Modal from "react-modal";
-import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
+import { Button, FormGroup, FormControl, FormLabel, Modal } from "react-bootstrap";
 import './index.css';
 import 'react-table/react-table.css';
 
@@ -90,7 +89,6 @@ class ProjectDisplay extends React.Component {
     }).then(res => res.json())
     .then(response => {
       this.setState({projectList: response});
-      console.log(this.state.projectList);
     });
 
     this.openProject = this.openProject.bind(this);
@@ -110,17 +108,37 @@ class ProjectDisplay extends React.Component {
       accessor: 'dateCreated'
     },
     {
+      Header: 'Created By',
+      accessor: 'createdBy'
+    },
+    {
       Header: 'Last Updated',
       accessor: 'dateUpdated'
     },
     {
-      Header: 'Project Name',
-      accessor: 'projectName'
+      Header: "Updated By",
+      accessor: "updatedBy"
     }];
 
     return (
       <div className="ProjectList">
-        <ReactTable data={this.state.projectList} columns={columns} />
+        <ReactTable data={this.state.projectList} columns={columns} getTrProps={(state, rowInfo) => {
+          if (rowInfo && rowInfo.row) {
+            return {
+              onClick: (e) => {
+                this.setState({
+                  selectedProjectId: rowInfo.row._original.projectId
+                })
+              },
+              style: {
+                background: rowInfo.row._original.projectId === this.state.selectedProjectId ? '#00afec' : 'white',
+                color: rowInfo.row._original.projectId === this.state.selectedProjectId ? 'white' : 'black'
+              }
+            }
+          } else{
+            return {}
+          }
+        }} />
       </div>
     );
   }
