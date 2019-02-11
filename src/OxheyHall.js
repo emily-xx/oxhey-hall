@@ -36,9 +36,11 @@ class Login extends React.Component {
   render() {
     return (
       <div className="Login">
+        <h1>Login</h1>
+
         <form onSubmit={this.handleSubmit}>
           <FormGroup controlId="username" bssize="large">
-            <FormLabel>Email</FormLabel>
+            <FormLabel>Username</FormLabel>
             <FormControl
               autoFocus
               type="text"
@@ -198,6 +200,7 @@ class ProjectDisplay extends React.Component {
 
     return (
       <div className="ProjectList">
+        <h1>Project List</h1>
         <Container>
           <Row>
             <Col>
@@ -245,7 +248,6 @@ class ProjectDisplay extends React.Component {
           </Modal.Footer>
         </Modal>
 
-        // Create Project Modal
         <Modal show={this.state.showCreateProject} onHide={this.closeCreateProject}>
           <Modal.Header closeButton>
             <Modal.Title>Create Project</Modal.Title>

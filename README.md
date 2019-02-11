@@ -16,3 +16,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 3) Add error handling for AJAX calls.
 4) Add more unit test coverage
 5) Add serviceWorker to check API connection for a better mobile experience.
+6) Make the Project Details modal look a bit nicer.
