@@ -103,7 +103,6 @@ class ProjectDisplay extends React.Component {
     this.openProject = this.openProject.bind(this);
   }
 
-  // Project Details Modal functions
   openProject = event => {
     let filter = {"include": "owner"};
 
@@ -157,7 +156,6 @@ class ProjectDisplay extends React.Component {
       body: JSON.stringify(newProjectData)
     }).then(res => res.json())
     .then(response => {
-      console.log(response);
       this.refreshProjectList();
       this.closeCreateProject();
     });
@@ -235,11 +233,11 @@ class ProjectDisplay extends React.Component {
           </Modal.Header>
 
           <Modal.Body>
-            <p>Project Name: {this.state.selectedProjectDetails.projectName}</p>
-            <p>Budget: {this.state.selectedProjectDetails.budget}</p>
-            <p>Created by {this.state.selectedProjectDetails.createdBy} at {this.state.selectedProjectDetails.dateCreated}</p>
-            <p>Updated by {this.state.selectedProjectDetails.updatedBy} at {this.state.selectedProjectDetails.dateUpdated}</p>
-            <p>Revision: {this.state.selectedProjectDetails._rev}</p>
+            <p><strong>Project Name:</strong> {this.state.selectedProjectDetails.projectName}</p>
+            <p><strong>Budget:</strong> {this.state.selectedProjectDetails.budget}</p>
+            <p><strong>Created by</strong> {this.state.selectedProjectDetails.createdBy} <strong>on</strong> {this.state.selectedProjectDetails.dateCreated}</p>
+            <p><strong>Updated by</strong> {this.state.selectedProjectDetails.updatedBy} <strong>ot</strong> {this.state.selectedProjectDetails.dateUpdated}</p>
+            <p><strong>Revision:</strong> {this.state.selectedProjectDetails._rev}</p>
           </Modal.Body>
 
           <Modal.Footer>
@@ -247,6 +245,7 @@ class ProjectDisplay extends React.Component {
           </Modal.Footer>
         </Modal>
 
+        // Create Project Modal
         <Modal show={this.state.showCreateProject} onHide={this.closeCreateProject}>
           <Modal.Header closeButton>
             <Modal.Title>Create Project</Modal.Title>
@@ -274,7 +273,7 @@ class ProjectDisplay extends React.Component {
             </Modal.Body>
 
             <Modal.Footer>
-              <Button variant="primary" type="submit" onClick={this.closeProjectDetails} disabled={!this.validateCreateProject}>Create Project</Button>
+              <Button variant="primary" type="submit" onClick={this.closeProjectDetails} disabled={!this.validateCreateProject()}>Create Project</Button>
             </Modal.Footer>
           </form>
         </Modal>
@@ -303,7 +302,7 @@ class AppDisplay extends React.Component {
       }
     }).then(res => res.json())
     .then(response => {
-      if (response.id) {console.log(response);
+      if (response.id) {
         this.setState({loggedInUserData: response});
       }
     });
