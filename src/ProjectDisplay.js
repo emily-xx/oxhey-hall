@@ -133,7 +133,7 @@ class ProjectDisplay extends React.Component {
     }];
 
     return (
-      <div className="ProjectList">
+      <React.Fragment>
         <h1>Project List</h1>
         <Container>
           <Row>
@@ -213,7 +213,7 @@ class ProjectDisplay extends React.Component {
             </Modal.Footer>
           </form>
         </Modal>
-      </div>
+      </React.Fragment>
     );
   }
 }

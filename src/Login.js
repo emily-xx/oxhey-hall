@@ -34,7 +34,7 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div className="Login">
+      <React.Fragment>
         <h1>Login</h1>
 
         <form onSubmit={this.handleSubmit}>
@@ -64,7 +64,7 @@ class Login extends React.Component {
             Login
           </Button>
         </form>
-      </div>
+      </React.Fragment>
     );
   }
 }
