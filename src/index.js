@@ -8,7 +8,7 @@ import 'react-table/react-table.css';
 // ========================================
 ReactDOM.render(
   <div className="oxheyhall">
-      <OxheyHall />
+    <OxheyHall />
   </div>,
   document.getElementById('root')
 );
